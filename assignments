@@ -1,0 +1,40 @@
+#include<stdio.h>
+
+char *find_char(char const *source, char const *chars);
+  int main(void)
+  {
+      char * p;
+      p=find_char("ABC","");
+      printf("%c",*p);
+      
+      getchar();
+      getchar();
+      return 0;
+  }
+  
+  char *find_char(char const *source, char const *chars)
+  {
+       char const * orin_s=source;
+       char const * orin_c=chars;
+       if ((source==NULL)||(chars==NULL))
+        return NULL;
+       while(*source!='\0')
+       {
+         while(*source!=*chars)
+         {
+            printf("%c",*source);
+            printf("%c",*chars);    
+            puts("");                                     
+           chars++;
+           if (*chars=='\0')
+               { 
+                 chars=orin_c;
+                 break;
+               }
+         }
+         if (*source==*chars) 
+            return (char *)source;
+         source++;
+        }
+       return NULL;
+ }          
